@@ -1,0 +1,9 @@
+<!-- 这里是轮播图的开始 -->
+<view class="swiper-wrap">
+    <swiper autoplay circular indicator-dots>
+        <swiper-item  wx:for="{{swiperList}}" wx:key="goods_id">
+            <image src="{{item.image_src}}" class="image-item" mode="widthFix"/>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 轮播图的结束 -->

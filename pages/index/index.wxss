@@ -1,0 +1,11 @@
+
+
+/* 轮播的样式 开始*/
+swiper{
+    height: 340rpx;
+    /* background: red; */
+}
+.image-item{
+    width: 100%;
+}
+/* 轮播的样式 结束*/
