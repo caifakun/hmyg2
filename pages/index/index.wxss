@@ -1,11 +1,22 @@
-
-
 /* 轮播的样式 开始*/
-swiper{
-    height: 340rpx;
-    /* background: red; */
+swiper {
+  height: 340rpx;
+  /* background: red; */
 }
-.image-item{
-    width: 100%;
+.image-item {
+  width: 100%;
 }
 /* 轮播的样式 结束*/
+/* 导航样式 开始 */
+.navigator-wrap {
+  display: flex;
+  text-align: center;
+  padding: 10rpx 0 ;
+}
+.navigator-wrap .navigator-item {
+  width: 100%;
+}
+.navigator-wrap .navigator-item .navigator-image-item {
+  width: 70%;
+}
+/* 导航样式结束 */

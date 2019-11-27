@@ -1,9 +1,18 @@
+
+
 <!-- 这里是轮播图的开始 -->
 <view class="swiper-wrap">
     <swiper autoplay circular indicator-dots>
-        <swiper-item  wx:for="{{swiperList}}" wx:key="goods_id">
-            <image src="{{item.image_src}}" class="image-item" mode="widthFix"/>
+        <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+            <image src="{{item.image_src}}" class="image-item" mode="widthFix" />
         </swiper-item>
     </swiper>
 </view>
 <!-- 轮播图的结束 -->
+<!-- 导航栏 开始 -->
+<view class="navigator-wrap">
+    <navigator class="navigator-item"  wx:for="{{navigatorList}}" wx:key="">
+        <image class="navigator-image-item" src="{{item.image_src}}"  mode="widthFix"/>
+    </navigator>   
+</view>
+<!-- 导航栏 结束 -->
