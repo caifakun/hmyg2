@@ -1,5 +1,3 @@
-
-
 <!-- 这里是轮播图的开始 -->
 <view class="swiper-wrap">
     <swiper autoplay circular indicator-dots>
@@ -9,10 +7,31 @@
     </swiper>
 </view>
 <!-- 轮播图的结束 -->
+
 <!-- 导航栏 开始 -->
 <view class="navigator-wrap">
-    <navigator class="navigator-item"  wx:for="{{navigatorList}}" wx:key="">
-        <image class="navigator-image-item" src="{{item.image_src}}"  mode="widthFix"/>
-    </navigator>   
+    <navigator class="navigator-item" wx:for="{{navigatorList}}" wx:key="">
+        <image class="navigator-image-item" src="{{item.image_src}}" mode="widthFix" />
+    </navigator>
 </view>
 <!-- 导航栏 结束 -->
+
+<!-- 楼层 开始 -->
+<view class="floor-wrap">
+    <view class="floor-group" wx:for="{{floorList}}" wx:key="item1.floor_title" wx:for-item="item1" wx:for-index="index1">
+        <view class="floor-title">
+            <image class="title-img" src="{{item1.floor_title.image_src}}" mode="widthFix"/>
+        </view>
+        <view class="floor-content" >
+            <navigator class="content-item" 
+            wx:for="{{item1.product_list}}" 
+            wx:key="item.name" 
+            wx:for-item="item2" 
+            wx:for-index="index2">
+                <image class="content-img" src="{{item2.image_src}}" mode="{{index2===0? 'widthFix':'scaleToFill'}}"/>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<!-- 楼层 结束 -->

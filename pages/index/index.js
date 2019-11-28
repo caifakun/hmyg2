@@ -5,14 +5,15 @@ Page({
 
 		],
 		// 导航
-		navigatorList:[]
+		navigatorList:[],
+		// 楼层内容
+		floorList:[]
 	},
 	onLoad() {
 		// 这里是请求获取轮播图数据
 		wx.request({
 			url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
 			method: 'GET',
-			responseType: 'text',
 			success: (result) => {
 				// console.log(result.data.message);
 				this.setData({
@@ -25,7 +26,6 @@ Page({
 		wx.request({
 			url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
 			method: 'GET',
-			responseType: 'text',
 			success: (result) => {
 				// console.log(result.data.message);
 				this.setData({
@@ -34,5 +34,16 @@ Page({
 			}
 		});
 
+		// 这里 获取首页 楼层数据
+		wx.request({
+			url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
+			method: 'GET',
+			success: (result) => {
+				console.log(result.data.message);
+				this.setData({
+					floorList: result.data.message
+				})
+			}
+		});
 	}
 })

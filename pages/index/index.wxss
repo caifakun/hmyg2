@@ -11,7 +11,7 @@ swiper {
 .navigator-wrap {
   display: flex;
   text-align: center;
-  padding: 10rpx 0 ;
+  padding: 20rpx 0 ;
 }
 .navigator-wrap .navigator-item {
   width: 100%;
@@ -20,3 +20,30 @@ swiper {
   width: 70%;
 }
 /* 导航样式结束 */
+/* 楼层样式  开始 */
+.floor-wrap .floor-group {
+  margin-bottom: 20rpx;
+  padding: 5rpx 10rpx;
+}
+.floor-wrap .floor-group .floor-title {
+  height: 59rpx;
+}
+.floor-wrap .floor-group .floor-title .title-img {
+  width: 100%;
+}
+.floor-wrap .floor-group .floor-content {
+  overflow: hidden;
+}
+.floor-wrap .floor-group .floor-content .content-item .content-img {
+  display: block;
+  float: left;
+  width: 33.33%;
+  padding: 5rpx 5rpx 0;
+}
+.floor-wrap .floor-group .floor-content .content-item .content-img:first-child {
+  height: 415.94827586rpx;
+}
+.floor-wrap .floor-group .floor-content .content-item:nth-last-child(-n+4) .content-img {
+  height: 197.97413793rpx;
+}
+/* 楼层样式  结束 */
