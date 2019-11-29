@@ -1,0 +1,5 @@
+<!--components/searchbar/searchbar.wxml-->
+<navigator class="search">
+    <view class="searchInput"><text class="iconfont icon-search"></text> 搜索</view>    
+</navigator>
+  

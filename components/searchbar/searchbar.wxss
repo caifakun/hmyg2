@@ -1,0 +1,17 @@
+/* components/searchbar/searchbar.wxss */
+
+.search{
+    padding: 20rpx 20rpx;
+    background: #eb4450;  
+}
+.searchInput{
+    background: #fff;
+    height: 50rpx;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
