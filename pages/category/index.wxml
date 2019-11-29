@@ -4,7 +4,11 @@
 <!-- 分类 -->
 <view class="cate-wrap">
 	<view class="cate-menues">
-		<view class="cate-menues-item" wx:for="{{leftMenues}}" wx:key="item">{{item}}</view>
+		<view class="cate-menues-item {{current==index?'active': ''}}" 
+		wx:for="{{leftMenues}}" 
+		wx:key="item"
+		bindtap="handleCategory" data-index="{{index}}"
+		>{{item}}</view>
 	</view>
 	<view class="cate-content">
 		<view class="cate-content-item" 

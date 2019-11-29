@@ -10,7 +10,9 @@ Page({
     // 左侧数据
     leftMenues:[],
     // 右侧数据
-    rightContent:[]
+    rightContent:[],
+    // 用于左侧栏切换样式和数据
+    current:0
   },
   // 全局内部的数据 wxml中找不到
   // 但是js内部需要使用到全局数据
@@ -32,11 +34,15 @@ Page({
       // 修改右侧数据
       this.setData({
         rightContent:this.Categories[0].children
-      })
-      console.log(this.data.rightContent);
-      
+      })    
+    })
+  },
+  handleCategory(e){
+    // console.log(e.currentTarget.dataset);
+    let {index} = e.currentTarget.dataset;
+    this.setData({
+      current:index,
+      rightContent:this.Categories[index].children
     })
   }
-
-
 })
