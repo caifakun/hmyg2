@@ -1,0 +1,47 @@
+/* pages/category/index.wxss */
+.cate-wrap{
+    display: flex;
+    height: calc(100vh - 90rpx);
+    .cate-menues{
+        height: 100%;
+        width: 200rpx;
+        // background: #bbffaa;
+        overflow: auto;
+        .cate-menues-item{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 80rpx;
+            border-bottom: 1px solid #cccccc;
+            border-right: 1px solid #cccccc;
+        }
+    }
+    .cate-content{
+        
+        flex: 1;
+        height: 100%;
+        overflow: auto;
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60rpx;
+        }
+        .cate-content-sign{
+            display: flex;
+            flex-wrap: wrap;
+            .cate-sign{
+                width: 33.33%;
+                text-align: center;
+                margin-bottom: 20rpx;
+                color: #666;
+                font-size: 28rpx;
+            }
+            .sign{
+                width: 50%;
+            }
+        }
+            
+        
+    }
+}

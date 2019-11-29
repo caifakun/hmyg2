@@ -1,2 +1,29 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<SearchInput></SearchInput>
+
+<!-- 分类 -->
+<view class="cate-wrap">
+	<view class="cate-menues">
+		<view class="cate-menues-item" wx:for="{{leftMenues}}" wx:key="item">{{item}}</view>
+	</view>
+	<view class="cate-content">
+		<view class="cate-content-item" 
+		wx:for="{{rightContent}}" 
+		wx:for-item="item1" 
+		wx:for-index="index1" 
+		wx:key="cat_id">
+			<view class="title">/ {{item1.cat_name}} /</view>
+			
+			<view class="cate-content-sign">
+				<navigator class="cate-sign"
+				wx:for="{{item1.children}}" 
+				wx:for-item="item2" 
+				wx:for-index="index2"
+				wx:key="item2.cat_id">
+					<image class="sign" src="{{item2.cat_icon}}" mode="widthFix" />
+					<view class="name">{{item2.cat_name}}</view>
+				</navigator>
+			</view>
+		</view>
+	</view>
+</view>
