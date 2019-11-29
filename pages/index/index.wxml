@@ -1,3 +1,4 @@
+<SearchInput></SearchInput>
 <!-- 这里是轮播图的开始 -->
 <view class="swiper-wrap">
     <swiper autoplay circular indicator-dots>
@@ -18,10 +19,13 @@
 
 <!-- 楼层 开始 -->
 <view class="floor-wrap">
+    <!-- 分类 -->
     <view class="floor-group" wx:for="{{floorList}}" wx:key="item1.floor_title" wx:for-item="item1" wx:for-index="index1">
+        <!-- 楼层的标题 -->
         <view class="floor-title">
             <image class="title-img" src="{{item1.floor_title.image_src}}" mode="widthFix"/>
         </view>
+        <!-- 楼层的内容 -->
         <view class="floor-content" >
             <navigator class="content-item" 
             wx:for="{{item1.product_list}}" 
