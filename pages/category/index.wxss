@@ -42,6 +42,6 @@
   width: 50%;
 }
 .active {
-  border-left: 5rpx solid #eb4450;
+  border-left: 6rpx solid #eb4450;
   color: #eb4450;
 }

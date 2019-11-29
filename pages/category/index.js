@@ -12,7 +12,9 @@ Page({
     // 右侧数据
     rightContent:[],
     // 用于左侧栏切换样式和数据
-    current:0
+    current:0,
+    //用于设置滚动条的位置
+    scrollTop:0
   },
   // 全局内部的数据 wxml中找不到
   // 但是js内部需要使用到全局数据
@@ -42,7 +44,8 @@ Page({
     let {index} = e.currentTarget.dataset;
     this.setData({
       current:index,
-      rightContent:this.Categories[index].children
+      rightContent:this.Categories[index].children,
+      scrollTop:0
     })
   }
 })

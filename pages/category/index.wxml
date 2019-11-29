@@ -3,6 +3,7 @@
 
 <!-- 分类 -->
 <view class="cate-wrap">
+	<!-- 分类的左侧 -->
 	<view class="cate-menues">
 		<view class="cate-menues-item {{current==index?'active': ''}}" 
 		wx:for="{{leftMenues}}" 
@@ -10,7 +11,9 @@
 		bindtap="handleCategory" data-index="{{index}}"
 		>{{item}}</view>
 	</view>
-	<view class="cate-content">
+	<!-- 分类的右侧 -->
+	<scroll-view scroll-y scroll-top="{{scrollTop}}" class="cate-content">
+		<!-- 分类右侧头部 -->
 		<view class="cate-content-item" 
 		wx:for="{{rightContent}}" 
 		wx:for-item="item1" 
@@ -29,5 +32,5 @@
 				</navigator>
 			</view>
 		</view>
-	</view>
+	</scroll-view>
 </view>
