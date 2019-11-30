@@ -1,2 +1,17 @@
 <!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+
+<!-- 商品列表 开始 -->
+<view class="goods-list">
+    <view class="goods-wrap"
+    wx:for="{{goodsList}}"
+    wx:key="goods_id">
+        <navigator class="goods-left">
+            <image class="" src="{{item.goods_small_logo}}" mode="widthFix"/>
+        </navigator>
+        <view class="goods-right">
+            <view class="goods-name">{{item.goods_name}}</view>
+            <view class="goods-price">￥{{item.goods_price}}</view>
+        </view>
+    </view>
+</view>
+<!-- 商品列表 结束 -->
