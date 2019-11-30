@@ -6,7 +6,7 @@
     wx:for="{{goodsList}}"
     wx:key="goods_id">
         <navigator class="goods-left">
-            <image class="" src="{{item.goods_small_logo}}" mode="widthFix"/>
+            <image class="" src="{{item.goods_small_logo || 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1575111863&di=33abbc6f4eb48c48d22c764a30d48b76&src=http://img.zcool.cn/community/01c2ea586c65a2a8012060c86b5bf8.png@1280w_1l_2o_100sh.png' }}" mode="widthFix"/>
         </navigator>
         <view class="goods-right">
             <view class="goods-name">{{item.goods_name}}</view>
