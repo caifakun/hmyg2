@@ -7,8 +7,9 @@ Page({
     query:"",//关键字
     cid:-1,//分类id
     pagenum:1, //页码
-    pagesize:10//页面容量
+    pagesize:10,//页面容量
   },
+  totalPage:0, // 数据页码
   data:{
     goodsList:[]
   },
@@ -22,11 +23,35 @@ Page({
       url:'goods/search',
       data:this.params
     }).then(result=>{
-      // console.log(result);
+      // 先把旧数据存下来
+      const {goodsList} = this.data; 
+      // 使用es6解构再合并成一个新的数组
       this.setData({
-        goodsList:result.data.message.goods
+        goodsList:[...goodsList,...result.data.message.goods],
       })
+      this.totalPage = Math.ceil(result.data.message.total/this.params.pagesize);
     }) 
   },
+    /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    // 拉到底部，触发加载更多的时候
+    // 由于后台返回来的是总条数
+    // 因此触底是否需要发送请求，需要先进行判断
 
+    // 1.页面容量大于总条数，不再加载
+    if(this.params.pagenum >= this.totalPage){
+      // console.log('没有内容可以继续加载了'); 
+      wx.showToast({
+        title: '没有更多内容',
+        icon: 'success',
+        duration: 2000
+      })
+    }//否则改变页码，发送请求
+    else{
+      this.params.pagenum++;
+      this.getGoodsList();
+    }
+  },
 })
