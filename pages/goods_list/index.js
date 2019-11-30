@@ -54,4 +54,16 @@ Page({
       this.getGoodsList();
     }
   },
+   /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    // 重新修改页面页码为1
+    this.params.pagenum = 1;
+    // 重新修改数据列表为空
+    this.setData({
+      goodsList:[]
+    })
+    this.getGoodsList();
+  },
 })
