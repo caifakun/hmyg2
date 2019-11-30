@@ -1,12 +1,55 @@
-
-<!-- 商品详情 -->
+<!-- 商品详情 轮播图开始 -->
 
 <view class="swiper-wrap">
-    <swiper class="swiper-content" indicator-dots autoplay circular >
-        <swiper-item  
-        wx:for="{{goodsDetail.pics}}"
-        wx:key="pics_id">
+    <swiper class="swiper-content" indicator-dots autoplay circular>
+        <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="pics_id">
             <image class="" src="{{item.pics_mid}}" mode="widthFix" />
-        </swiper-item>     
-    </swiper>    
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 商品详情 轮播图结束 -->
+
+<!-- 商品详情描述价格 开始 -->
+<view class="goods-desc">
+    <view class="goods-price">￥{{goodsDetail.goods_price}}</view>
+    <view class="goods-name">
+        <view class="name">{{goodsDetail.goods_name}}</view>
+        <view class="collection">
+            <text class="iconfont icon-shoucang"></text>
+            <view class="collect">收藏</view>
+        </view>
+    </view>
+</view>
+<!-- 商品详情描述价格 结束 -->
+
+<!-- 商品 详情信息 开始 -->
+<view class="goods-detail">
+    <view class="detail-title">图文详情</view>
+    <rich-text class="detail-content" nodes="{{goodsDetail.goods_introduce}}">
+    </rich-text>
+</view>
+
+<!-- 商品 详情信息 结束 -->
+
+<view class="utils-wrap">
+    <view class="utils">
+        <view class="utils-left">
+            <view class="contact">
+                <text class="iconfont icon-kefu"></text>
+                <view class="contact-kefu">联系客服</view>
+            </view>
+            <view class="share">
+                <text class="iconfont icon-yixianshi-"></text>
+                <view class="contact-share">分享</view>
+            </view>
+            <view class="cart">
+                <text class="iconfont icon-gouwuche"></text>
+                <view class="contact-cart">购物车</view>
+            </view>
+        </view>
+        <view class="utils-right">
+            <view class="addCart">加入购物车</view>
+            <view class="buy">立即购买</view>
+        </view>
+    </view>
 </view>
