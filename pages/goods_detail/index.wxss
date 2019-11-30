@@ -1,1 +1,8 @@
 /* pages/goods_detail/index.wxss */
+.swiper-wrap .swiper-content {
+  text-align: center;
+  height: 60vw;
+}
+.swiper-wrap .swiper-content image {
+  width: 60%;
+}
