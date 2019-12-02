@@ -65,11 +65,38 @@
   justify-content: space-around;
   height: 100rpx;
 }
+.utils-wrap .utils .utils-left .contact {
+  position: relative;
+  flex: 1;
+}
 .utils-wrap .utils .utils-left .contact .contact-kefu {
   font-size: 24rpx;
 }
+.utils-wrap .utils .utils-left .contact .kefu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.utils-wrap .utils .utils-left .share {
+  position: relative;
+  flex: 1;
+}
 .utils-wrap .utils .utils-left .share .contact-share {
   font-size: 24rpx;
+}
+.utils-wrap .utils .utils-left .share .fenxiang {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.utils-wrap .utils .utils-left .cart {
+  flex: 1;
 }
 .utils-wrap .utils .utils-left .cart .contact-cart {
   font-size: 24rpx;

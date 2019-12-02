@@ -3,7 +3,7 @@
 <view class="swiper-wrap">
     <swiper class="swiper-content" indicator-dots autoplay circular>
         <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="pics_id">
-            <image  bindtap="handldePreviewImage" data-src="{{item.pics_mid}}" src="{{item.pics_mid}}" mode="widthFix" />
+            <image bindtap="handldePreviewImage" data-src="{{item.pics_mid}}" src="{{item.pics_mid}}" mode="widthFix" />
         </swiper-item>
     </swiper>
 </view>
@@ -37,10 +37,12 @@
             <view class="contact">
                 <text class="iconfont icon-kefu"></text>
                 <view class="contact-kefu">联系客服</view>
+                <button class="kefu" open-type="contact">客服</button>
             </view>
             <view class="share">
                 <text class="iconfont icon-yixianshi-"></text>
                 <view class="contact-share">分享</view>
+                <button class="fenxiang" open-type="share">分享</button>
             </view>
             <view class="cart">
                 <text class="iconfont icon-gouwuche"></text>
