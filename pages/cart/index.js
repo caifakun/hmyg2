@@ -38,52 +38,34 @@ todo 3
 Page({
 
   data: {
-
+    address: {} //用于存储用户地址
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onShow() {
+    // 从本地存储中取出来
+    const address = wx.getStorageSync('address') || {};
+    // 修改address
+    this.setData({
+      address
+    })
+    
+      
   },
 
   //添加收货地址
   async getAddress() {
-    // 1 先获取用户的授权状态
-    // wx.getSetting({
-    //   success: (result) => {
-    //     // 属性名比较奇怪的时候 需要通过 []来获取
-    //     const auth = result.authSetting['scope.address'];
-    //     // 当auth=undefined 或者true 都可以直接获取游用户的收货地址
-    //     if (auth === undefined || auth === true) {
-    //       // 直接获取用户的收货地址
-    //       wx.chooseAddress({
-    //         success: (result1) => {
-    //           console.log(result1);
-    //         }
-    //       });
-    //     } else {
-    //       // 用户曾经点击了 "拒绝"
-    //       wx.openSetting({
-    //         success: (result2) => {
-    //           // 直接获取收货地址
-    //           wx.chooseAddress({
-    //             success: (result1) => {
-    //               console.log(result1);
-    //             }
-    //           });
-    //         }
-    //       });
-
-    //     }
-    //   }
-    // });
+    // 先判断用户权限
      const auth = (await getSetting()).authSetting['scope.address'];
      if(auth === false){
        await openSetting();
      }
       const res = await chooseAddress(); 
       console.log(res)
+      // 存入本地存储
+      wx.setStorageSync('address', {res});
+        
   }
 })

@@ -1,1 +1,23 @@
 /* pages/cart/index.wxss */
+.address-wrap .address {
+  font-weight: normal;
+  border: 1px solid #ccc;
+  margin-top: 40rpx;
+}
+.address-wrap .address-name {
+  padding: 20rpx 80rpx;
+  border: 1px solid #ccc;
+}
+.address-wrap .address-name .userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.address-wrap .address-name .userInfo .name {
+  flex: 1;
+}
+.address-wrap .address-name .userInfo .tel {
+  flex: 1;
+  text-align: right;
+}
