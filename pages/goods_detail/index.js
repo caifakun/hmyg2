@@ -35,5 +35,11 @@ Page({
       current, // 当前显示图片的http链接
       urls // 需要预览的图片http链接列表
     })
+  },
+  // 加入购物车
+  addCart(){
+    // console.log(this.data.goodsDetail);
+    const {goodsDetail} = this.data;
+    wx.setStorageSync('cartsList',{goodsDetail} );  
   }
 })
