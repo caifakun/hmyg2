@@ -21,8 +21,8 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.3",
-	"appid": "wx2e384ec7a3b76071",
+	"libVersion": "2.9.2",
+	"appid": "wx226907e1e50b3f3d",
 	"projectname": "hmyg",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -79,6 +79,13 @@
 					"id": -1,
 					"name": "登录页",
 					"pathName": "pages/login/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/index",
 					"scene": null
 				}
 			]
