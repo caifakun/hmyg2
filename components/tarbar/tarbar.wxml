@@ -1,0 +1,10 @@
+<!--components/tarBar/tarbar.wxml-->
+<view>
+    <view class="tarbar-wrap">
+        <view class="tarbar-item {{currentIndex == index? 'active':''}}" wx:for="{{title}}" wx:key="index"
+            data-index="{{index}}" bindtap="handleIndex">{{item}}</view>
+    </view>
+    <view class="item-content">
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+/* components/tarBar/tarbar.wxss */
+
+.tarbar-wrap{
+    display: flex;
+}
+.tarbar-item{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+    border-bottom: 2rpx solid #ccc;
+}
+.active{
+    border-bottom: 2rpx solid #eb4450;
+}

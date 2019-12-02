@@ -74,6 +74,12 @@
 					"pathName": "pages/goods_detail/index",
 					"query": "goods_id=43985",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录页",
+					"pathName": "pages/login/index",
+					"scene": null
 				}
 			]
 		}

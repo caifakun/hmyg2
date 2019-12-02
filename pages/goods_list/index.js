@@ -11,7 +11,13 @@ Page({
   },
   totalPage:0, // 数据页码
   data:{
-    goodsList:[]
+    goodsList:[],
+    tarBarList:[
+      '综合',
+      '销量',
+      '价格'
+    ],
+    currentIndex : 0 // 用于控制tarbar
   },
 
   onLoad: function (options) {
@@ -66,4 +72,12 @@ Page({
     })
     this.getGoodsList();
   },
+  //改变tarbar的索引值进行切换
+  changeIndex(e){
+    // console.log(e);
+    const index = e.detail.index;
+    this.setData({
+      currentIndex : index
+    })
+  }
 })
