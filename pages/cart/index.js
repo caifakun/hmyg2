@@ -31,6 +31,10 @@ todo 3
     4 修改成 async的方式 
 
   */
+
+ import regeneratorRuntime, { async } from '../../lib/runtime/runtime';
+
+ import { getSetting,openSetting,chooseAddress} from '../../utils/wxAsync';
 Page({
 
   data: {
@@ -45,35 +49,41 @@ Page({
   },
 
   //添加收货地址
-  getAddress() {
+  async getAddress() {
     // 1 先获取用户的授权状态
-    wx.getSetting({
-      success: (result) => {
-        // 属性名比较奇怪的时候 需要通过 []来获取
-        const auth = result.authSetting['scope.address'];
-        // 当auth=undefined 或者true 都可以直接获取游用户的收货地址
-        if (auth === undefined || auth === true) {
-          // 直接获取用户的收货地址
-          wx.chooseAddress({
-            success: (result1) => {
-              console.log(result1);
-            }
-          });
-        } else {
-          // 用户曾经点击了 "拒绝"
-          wx.openSetting({
-            success: (result2) => {
-              // 直接获取收货地址
-              wx.chooseAddress({
-                success: (result1) => {
-                  console.log(result1);
-                }
-              });
-            }
-          });
+    // wx.getSetting({
+    //   success: (result) => {
+    //     // 属性名比较奇怪的时候 需要通过 []来获取
+    //     const auth = result.authSetting['scope.address'];
+    //     // 当auth=undefined 或者true 都可以直接获取游用户的收货地址
+    //     if (auth === undefined || auth === true) {
+    //       // 直接获取用户的收货地址
+    //       wx.chooseAddress({
+    //         success: (result1) => {
+    //           console.log(result1);
+    //         }
+    //       });
+    //     } else {
+    //       // 用户曾经点击了 "拒绝"
+    //       wx.openSetting({
+    //         success: (result2) => {
+    //           // 直接获取收货地址
+    //           wx.chooseAddress({
+    //             success: (result1) => {
+    //               console.log(result1);
+    //             }
+    //           });
+    //         }
+    //       });
 
-        }
-      }
-    });
+    //     }
+    //   }
+    // });
+     const auth = (await getSetting()).authSetting['scope.address'];
+     if(auth === false){
+       await openSetting();
+     }
+      const res = await chooseAddress(); 
+      console.log(res)
   }
 })
