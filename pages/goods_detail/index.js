@@ -26,5 +26,14 @@ Page({
         goodsDetail : result.data.message
       })
     })
+  },
+  // 点击图片，进行预览
+  handldePreviewImage(e){
+    const current = e.currentTarget.dataset.src;
+    const urls = this.data.goodsDetail.pics.map(v=>v.pics_big)
+    wx.previewImage({
+      current, // 当前显示图片的http链接
+      urls // 需要预览的图片http链接列表
+    })
   }
 })
