@@ -41,7 +41,8 @@ Page({
     address: {}, //用于存储用户地址
     carts:[],  //购物车商品
     toalPrice:0, // 总价
-    num:0 //商品总价
+    num:0, //商品总价
+    allChecked: false //绑定全选按钮
   },
   onLoad(){
 
@@ -72,15 +73,21 @@ Page({
   
     let totalPrice = 0;
     let num = 0
+   
+    let allChecked = true;
     carts.forEach(v => {
       if(v.isChecked){
         totalPrice += v.nums*v.goods_price; // 总价
         num += v.nums  // 总数量
+      }else{
+         // 每一项都选中才是true，只要有一项不选中，就为false
+        allChecked = false
       }
     });
     this.setData({
       totalPrice,
-      num
+      num,
+      allChecked 
     })
   },
 
@@ -92,6 +99,21 @@ Page({
     carts[index].isChecked = !carts[index].isChecked;
     this.setData({
       carts
+    })
+    // 重新存回本地存储
+    wx.setStorageSync('carts',carts);
+    // 重新计算总价
+    this.getTotalPrice(carts)
+  },
+  // 全选按钮
+  allChange(){
+    let {carts,allChecked} = this.data;
+    allChecked = !allChecked;
+
+    carts.forEach(v=>v.isChecked = allChecked)   
+    this.setData({
+      carts,
+      allChecked
     })
     // 重新存回本地存储
     wx.setStorageSync('carts',carts);

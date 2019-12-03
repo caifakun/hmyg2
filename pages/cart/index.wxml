@@ -43,8 +43,8 @@
 <!-- 购物车列表项  结束-->
 
 <view class="account-wrap">
-    <checkbox-group bindchange="">
-        <checkbox class="checkbox" checked="true">全选</checkbox>
+    <checkbox-group bindchange="allChange">
+        <checkbox class="checkbox" checked="{{allChecked}}">全选</checkbox>
     </checkbox-group>
     <view class="total-price">
         <view class="total">合计:<text class="price">￥{{totalPrice}}</text></view> 
