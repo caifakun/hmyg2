@@ -9,7 +9,7 @@
     }
     .address-name {
         padding: 20rpx 80rpx;
-        border: 1px solid #ccc;
+        border-bottom: 1px solid var(--themeColor);
       .userInfo {
           display: flex;
           justify-content: space-between;
@@ -28,4 +28,88 @@
   
       }
     }
+}
+
+// 购物车列表项
+.carts-wrap {
+    .title {
+      border-bottom: 2rpx solid var(--themeColor);
+      line-height: 60rpx;
+      padding-left: 20rpx;
+    }
+  
+    .carts-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200rpx; 
+      padding: 15rpx;
+      border-bottom: 1px solid #ccc;
+      checkbox-group{
+        margin-right: 20rpx;
+      }
+      
+      .item-img {
+        flex: 1;
+        
+        // overflow: hidden;
+        image {
+          width: 100%;
+          // height: 100%;
+        }
+      }
+  
+      .goods-content {
+        flex: 3;
+        padding-left: 20rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .goods-name {
+          
+          font-size: 26rpx;
+          color: #666;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          margin-bottom: 20rpx;
+          
+        }
+  
+        .goods-computed {
+          display: flex;
+          .price {
+            flex: 1;
+            color: var(--themeColor);
+          }
+  
+          .number {
+            display: flex;
+            
+            .reduce {
+              width: 40rpx;
+              height:40rpx;
+              border: 1rpx solid #ccc;
+              line-height: 30rpx;
+              text-align: center;
+            }
+  
+            .num {
+              line-height: 40rpx;
+              padding: 0 15rpx;
+            }
+  
+            .add {
+              width: 40rpx;
+              height:40rpx;
+              border: 1rpx solid #ccc;
+              line-height: 30rpx;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
+

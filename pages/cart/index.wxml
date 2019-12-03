@@ -2,15 +2,44 @@
 
 <!-- 添加收货地址 -->
 <view class="address-wrap">
-    <button wx:if="{{!address.res.userName}}" class="address"  bindtap="getAddress">+添加收货地址</button>
+    <button wx:if="{{!address.userName}}" class="address"  bindtap="getAddress">+添加收货地址</button>
     <view class="address-name" wx:else>
         <view class="userInfo">
-                <view class="name">{{address.res.userName}}</view>
-                <view class="tel">{{address.res.telNumber}}</view>
+                <view class="name">{{address.userName}}</view>
+                <view class="tel">{{address.telNumber}}</view>
         </view>
-        <view class="address-detail">{{address.res.provinceName+address.res.cityName+address.res.countyName+address.res.detailInfo}}</view>
+        <view class="address-detail">{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</view>
     </view>    
 </view>
+
+<!-- 购物车列表项  开始-->
+
+<view class="carts-wrap">
+    <view class="title">优购生活馆</view>
+    <view class="carts-item" wx:for="{{carts}}" wx:key="goods_id">
+        <checkbox-group bindchange="">
+            <checkbox class="checkbox" checked="true" > 
+            </checkbox>  
+        </checkbox-group>
+          
+        <view class="item-img">
+            <image  src="{{item.goods_small_logo}}" mode="widthFix" />
+        </view>
+        <view class="goods-content">
+            <view class="goods-name">{{item.goods_name}}</view>
+            <view class="goods-computed">
+                <view class="price">￥{{item.goods_price}}</view>
+                <view class="number">
+                    <view class="reduce">-</view>
+                    <view class="num">1</view>
+                    <view class="add">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 购物车列表项  结束-->
   
 
   

@@ -38,21 +38,25 @@ todo 3
 Page({
 
   data: {
-    address: {} //用于存储用户地址
+    address: {}, //用于存储用户地址
+    carts:[]
   },
-
+  onLoad(){
+    const carts = wx.getStorageSync('carts');
+    this.setData({
+      carts
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onShow() {
     // 从本地存储中取出来
-    const address = wx.getStorageSync('address') || {};
+    const address = wx.getStorageSync('address') || {};  
     // 修改address
     this.setData({
-      address
-    })
-    
-      
+      address:address.res
+    }) 
   },
 
   //添加收货地址
@@ -66,6 +70,5 @@ Page({
       console.log(res)
       // 存入本地存储
       wx.setStorageSync('address', {res});
-        
   }
 })
