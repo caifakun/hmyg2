@@ -62,6 +62,7 @@ Page({
     }) 
     this.getTotalPrice(carts);
   },
+  // 计算商品总价和数量
   getTotalPrice(carts){
   // 1 获取缓存中的购物车数组
   // 2 循环 
@@ -81,7 +82,21 @@ Page({
       totalPrice,
       num
     })
-    
+  },
+
+  // 单选框是否被选中
+  checkboxChange(e){
+    const {index} = e.currentTarget.dataset;
+    const {carts} = this.data;
+    // 等于当前的单选框 自身去反
+    carts[index].isChecked = !carts[index].isChecked;
+    this.setData({
+      carts
+    })
+    // 重新存回本地存储
+    wx.setStorageSync('carts',carts);
+    // 重新计算总价
+    this.getTotalPrice(carts)
   },
 
   //添加收货地址

@@ -18,7 +18,7 @@
 <view class="carts-wrap">
     <view class="title">优购生活馆</view>
     <view class="carts-item" wx:for="{{carts}}" wx:key="goods_id">
-        <checkbox-group bindchange="">
+        <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
             <checkbox class="checkbox" checked="{{item.isChecked}}">
             </checkbox>
         </checkbox-group>
