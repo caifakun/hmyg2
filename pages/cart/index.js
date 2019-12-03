@@ -99,6 +99,81 @@ Page({
     this.getTotalPrice(carts)
   },
 
+   /*编辑数量
+  1 点击 "+" 或者 "-" 
+  2 点击  "+" 执行数量 ++
+  3 点击  "-" 执行数量 --
+  4 其他情况 
+    1 当数量 大于 等于 库存    提示用户即可
+    2 当数量 小于 等于 1 的时候 提示用户 "是否要删除。。
+  */
+  
+  // 数量增加
+  add(e){
+    
+    const {index} = e.currentTarget.dataset;
+    const {carts} = this.data;
+    
+    if( carts[index].nums >= 1  && carts[index].nums <100){
+      carts[index].nums++
+    }else{
+      wx.showToast({
+        title: '库存不足了',
+        icon: 'none',
+        mask: true,
+      });    
+    }
+    this.setData({
+      carts
+    })
+     // 重新存回本地存储
+     wx.setStorageSync('carts',carts);
+     // 重新计算总价
+     this.getTotalPrice(carts)
+
+  },
+  // 数量减少
+  reduce(e){
+    
+    const {index} = e.currentTarget.dataset;
+    const {carts} = this.data;
+    
+    if( carts[index].nums >1){
+      carts[index].nums--
+    }else if(carts[index].nums === 1){
+      wx.showModal({
+        title: '警告',
+        content: '您是否要删除该商品',
+        showCancel: true,
+        cancelText: '取消',
+        cancelColor: '#000000',
+        confirmText: '确定',
+        confirmColor: '#3CC51F',
+        success: (result) => {
+          if (result.confirm) {
+            carts.splice(index,1)
+            this.setData({
+              carts
+            })
+             // 重新存回本地存储
+             wx.setStorageSync('carts',carts);
+             // 重新计算总价
+             this.getTotalPrice(carts)
+          }
+        }
+      });  
+    }
+    this.setData({
+      carts
+    })
+     // 重新存回本地存储
+     wx.setStorageSync('carts',carts);
+     // 重新计算总价
+     this.getTotalPrice(carts)
+
+  },
+
+
   //添加收货地址
   async getAddress() {
     // 先判断用户权限

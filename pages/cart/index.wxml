@@ -31,9 +31,9 @@
             <view class="goods-computed">
                 <view class="price">￥{{item.goods_price}}</view>
                 <view class="number">
-                    <view class="reduce">-</view>
+                    <view class="reduce" bindtap="reduce" data-index="{{index}}">-</view>
                     <view class="num">{{item.nums}}</view>
-                    <view class="add">+</view>
+                    <view class="add" bindtap="add" data-index="{{index}}">+</view>
                 </view>
             </view>
         </view>
