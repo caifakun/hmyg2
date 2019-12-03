@@ -24,9 +24,7 @@
             text-align: right;
         }
       }
-      .address-detail {
   
-      }
     }
 }
 
@@ -112,4 +110,55 @@
       }
     }
   }
+
+// 结算样式
+.account-wrap{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left:  20rpx;
+  height: 80rpx;
+  background: #fff;
+  box-shadow: 0 0 1px #ccc;
+  
+  checkbox-group{
+    flex: 2;
+  }
+  .total-price{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20rpx;
+    .total{
+      font-size: 30rpx;
+      text-align: right;
+      .price{
+        color: var(--themeColor);
+        font-weight: bold;
+      }
+    }
+    
+    .freight{
+      text-align: right;
+      font-size: 24rpx;
+      
+      color:#666;
+    }
+  }
+  .account{
+    flex: 1;
+    text-align: center;
+    border: 1px solid var(--themeColor);
+    background: var(--themeColor);
+    height: 100%;
+    line-height: 80rpx;
+    color: #fff;
+    
+  }
+
+}
 

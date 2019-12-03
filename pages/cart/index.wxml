@@ -2,14 +2,15 @@
 
 <!-- 添加收货地址 -->
 <view class="address-wrap">
-    <button wx:if="{{!address.userName}}" class="address"  bindtap="getAddress">+添加收货地址</button>
+    <button wx:if="{{!address.userName}}" class="address" bindtap="getAddress">+添加收货地址</button>
     <view class="address-name" wx:else>
         <view class="userInfo">
-                <view class="name">{{address.userName}}</view>
-                <view class="tel">{{address.telNumber}}</view>
+            <view class="name">{{address.userName}}</view>
+            <view class="tel">{{address.telNumber}}</view>
         </view>
-        <view class="address-detail">{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</view>
-    </view>    
+        <view class="address-detail">{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+        </view>
+    </view>
 </view>
 
 <!-- 购物车列表项  开始-->
@@ -18,12 +19,12 @@
     <view class="title">优购生活馆</view>
     <view class="carts-item" wx:for="{{carts}}" wx:key="goods_id">
         <checkbox-group bindchange="">
-            <checkbox class="checkbox" checked="true" > 
-            </checkbox>  
+            <checkbox class="checkbox" checked="true">
+            </checkbox>
         </checkbox-group>
-          
+
         <view class="item-img">
-            <image  src="{{item.goods_small_logo}}" mode="widthFix" />
+            <image src="{{item.goods_small_logo}}" mode="widthFix" />
         </view>
         <view class="goods-content">
             <view class="goods-name">{{item.goods_name}}</view>
@@ -40,6 +41,17 @@
 </view>
 
 <!-- 购物车列表项  结束-->
-  
 
-  
+<view class="account-wrap">
+    <checkbox-group bindchange="">
+        <checkbox class="checkbox" checked="true">全选</checkbox>
+    </checkbox-group>
+    <view class="total-price">
+        <view class="total">合计:<text class="price" >￥9988</text></view> 
+        <text class="freight" >包含运费</text>
+    </view>
+    
+    <view class="account">结算(1)</view>
+      
+
+</view>

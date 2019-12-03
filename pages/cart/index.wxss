@@ -87,3 +87,47 @@
   line-height: 30rpx;
   text-align: center;
 }
+.account-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20rpx;
+  height: 80rpx;
+  background: #fff;
+  box-shadow: 0 0 1px #ccc;
+}
+.account-wrap checkbox-group {
+  flex: 2;
+}
+.account-wrap .total-price {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20rpx;
+}
+.account-wrap .total-price .total {
+  font-size: 30rpx;
+  text-align: right;
+}
+.account-wrap .total-price .total .price {
+  color: var(--themeColor);
+  font-weight: bold;
+}
+.account-wrap .total-price .freight {
+  text-align: right;
+  font-size: 24rpx;
+  color: #666;
+}
+.account-wrap .account {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--themeColor);
+  background: var(--themeColor);
+  height: 100%;
+  line-height: 80rpx;
+  color: #fff;
+}
