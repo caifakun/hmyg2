@@ -51,7 +51,8 @@
         <text class="freight" >包含运费</text>
     </view>
     
-    <view class="account">结算({{num}})</view>
+    <view class="account" bindtap=
+    "toOrder">结算({{num}})</view>
       
 
 </view>

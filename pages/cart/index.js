@@ -192,9 +192,7 @@ Page({
      wx.setStorageSync('carts',carts);
      // 重新计算总价
      this.getTotalPrice(carts)
-
   },
-
 
   //添加收货地址
   async getAddress() {
@@ -207,5 +205,29 @@ Page({
       console.log(res)
       // 存入本地存储
       wx.setStorageSync('address', {res});
+  },
+
+  // 进行结算
+  toOrder(){
+    let {address,carts} = this.data
+    if(!address){
+      wx.showToast({
+        title: '请添加收货地址',
+        icon: 'none',
+        mask: true,
+      });  
+      //过滤里面每一项isChecked为true的出来
+      // 如果过滤后的长度为0，即不存在选中商品
+    }else if(carts.filter(v=>v.isChecked).length === 0){
+      wx.showToast({
+        title: '请添加商品',
+        icon: 'none',
+        mask: true,
+      })
+    }else{
+        wx.navigateTo({
+        url: '/pages/pay/index',
+      });
+    }
   }
 })
