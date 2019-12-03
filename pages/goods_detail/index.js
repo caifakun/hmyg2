@@ -48,7 +48,8 @@ Page({
     if (index === -1) {
       carts.unshift({
         ...this.data.goodsDetail,
-        nums:1
+        nums:1,  //数量
+        isChecked:true  // 判断是否选中
       })
     }else{
       carts[index].nums++

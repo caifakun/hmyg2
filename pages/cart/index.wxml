@@ -19,7 +19,7 @@
     <view class="title">优购生活馆</view>
     <view class="carts-item" wx:for="{{carts}}" wx:key="goods_id">
         <checkbox-group bindchange="">
-            <checkbox class="checkbox" checked="true">
+            <checkbox class="checkbox" checked="{{item.isChecked}}">
             </checkbox>
         </checkbox-group>
 
@@ -32,7 +32,7 @@
                 <view class="price">￥{{item.goods_price}}</view>
                 <view class="number">
                     <view class="reduce">-</view>
-                    <view class="num">1</view>
+                    <view class="num">{{item.nums}}</view>
                     <view class="add">+</view>
                 </view>
             </view>
@@ -47,11 +47,11 @@
         <checkbox class="checkbox" checked="true">全选</checkbox>
     </checkbox-group>
     <view class="total-price">
-        <view class="total">合计:<text class="price" >￥9988</text></view> 
+        <view class="total">合计:<text class="price">￥{{totalPrice}}</text></view> 
         <text class="freight" >包含运费</text>
     </view>
     
-    <view class="account">结算(1)</view>
+    <view class="account">结算({{num}})</view>
       
 
 </view>

@@ -39,24 +39,49 @@ Page({
 
   data: {
     address: {}, //用于存储用户地址
-    carts:[]
+    carts:[],  //购物车商品
+    toalPrice:0, // 总价
+    num:0 //商品总价
   },
   onLoad(){
-    const carts = wx.getStorageSync('carts');
-    this.setData({
-      carts
-    })
+
+    // this.getTotalPrice();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onShow() {
     // 从本地存储中取出来
+    const carts = wx.getStorageSync('carts') || [];
+
     const address = wx.getStorageSync('address') || {};  
     // 修改address
     this.setData({
-      address:address.res
+      address:address.res,
+      carts
     }) 
+    this.getTotalPrice(carts);
+  },
+  getTotalPrice(carts){
+  // 1 获取缓存中的购物车数组
+  // 2 循环 
+  //   1 判断该商品的isChecked 是否为 true
+  //   2 获取每个商品的单价 * 要购买的数量
+  //   3 每个商品的总价 叠加计算 ++ 
+  
+    let totalPrice = 0;
+    let num = 0
+    carts.forEach(v => {
+      if(v.isChecked){
+        totalPrice += v.nums*v.goods_price; // 总价
+        num += v.nums  // 总数量
+      }
+    });
+    this.setData({
+      totalPrice,
+      num
+    })
+    
   },
 
   //添加收货地址
