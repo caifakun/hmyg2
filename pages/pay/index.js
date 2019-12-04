@@ -26,7 +26,7 @@ Page({
 
   data: {
     address: {}, //用于存储用户地址
-    
+    addressDetail:'', //用于存储提交订单的地址
     carts:[],  //购物车商品
     toalPrice:0, // 总价
     num:0, //商品总数
@@ -42,10 +42,11 @@ Page({
     // 从本地存储中取出来
     const carts = wx.getStorageSync('carts') || [];
 
-    const address = wx.getStorageSync('address') || {};  
+    const address = (wx.getStorageSync('address')).res || {};  
     // 修改address
     this.setData({
-      address:address.res,
+      address,
+      addressDetail:address.provinceName+address.cityName+address.countyName+address.detailInfo,
       // 过滤掉其他，只需要获取勾选中的商品
       carts:carts.filter(v=>v.isChecked)
     }) 
@@ -73,19 +74,6 @@ Page({
     })
   },
 
-  //添加收货地址
-  async getAddress() {
-    // 先判断用户权限
-     const auth = (await getSetting()).authSetting['scope.address'];
-     if(auth === false){
-       await openSetting();
-     }
-      const res = await chooseAddress(); 
-      console.log(res)
-      // 存入本地存储
-      wx.setStorageSync('address', {res});
-  },
-
   // 进行支付
   async getUserInfo(e){
     // console.log(e);
@@ -94,9 +82,7 @@ Page({
     // 这里可以返回一个code
   const {code} = (await login());
 
-
-  console.log(code);
-  
+  // 创建对象存储需要传的参数
   const loginParams = {
     encryptedData,
     rawData,
@@ -104,9 +90,33 @@ Page({
     signature,
     code
   }
+  // 发送请求获取用户token
   const token = (await request({url:'users/wxlogin',method:'post',data:loginParams})).data.message.token
-  console.log(token);
+  // console.log(token);
 
+  /*------开始创建订单-----*/
+
+  // 创建对象存储需要传的参数
+  let createOrder = {
+    order_price: this.data.totalPrice,
+    consignee_addr: this.data.addressDetail,
+    goods: this.data.carts.map(v => ({
+        goods_id: v.goods_id,
+        goods_number: v.nums,
+        goods_price: v.goods_price
+      })
+    )
+  }
+  // 发送请求创建订单
+  const order_number = (await request({url:'my/orders/create',method:'post',data:createOrder,header:{Authorization:token}})).data.message.order_number
+ 
+
+      
+
+      
+  
+
+  
   
   
     // wx.navigateTo({

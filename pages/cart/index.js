@@ -55,10 +55,10 @@ Page({
     // 从本地存储中取出来
     const carts = wx.getStorageSync('carts') || [];
 
-    const address = wx.getStorageSync('address') || {};  
+    const address = (wx.getStorageSync('address')).res || {};
     // 修改address
     this.setData({
-      address:address.res,
+      address,
       carts
     }) 
     this.getTotalPrice(carts);
@@ -203,6 +203,9 @@ Page({
      }
       const res = await chooseAddress(); 
       console.log(res)
+      this.setData({
+        address : res
+      })
       // 存入本地存储
       wx.setStorageSync('address', {res});
   },
@@ -210,7 +213,7 @@ Page({
   // 进行结算
   toOrder(){
     let {address,carts} = this.data
-    if(!address){
+    if(!address.userName){
       wx.showToast({
         title: '请添加收货地址',
         icon: 'none',

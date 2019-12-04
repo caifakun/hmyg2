@@ -2,8 +2,8 @@
 
 <!-- 添加收货地址 -->
 <view class="address-wrap">
-    <button wx:if="{{!address.userName}}" class="address" bindtap="getAddress">+添加收货地址</button>
-    <view class="address-name" wx:else>
+
+    <view class="address-name" wx:if="{{address.userName}}">
         <view class="userInfo">
             <view class="name">收货人：{{address.userName}}</view>
             <view class="tel">{{address.telNumber}}</view>
