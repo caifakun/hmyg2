@@ -1,3 +1,4 @@
+// 执行获取用户权限
 export const getSetting = ()=>{
     return new Promise((resolve,reject)=>{
         wx.getSetting({
@@ -9,6 +10,7 @@ export const getSetting = ()=>{
         });   
     })
 }
+// 执行打开设置权限
 export const openSetting = ()=>{
     return new Promise((resolve,reject)=>{
         wx.openSetting({
@@ -21,7 +23,7 @@ export const openSetting = ()=>{
     })
 }
 
-
+// 执行选择收货地址
 export const chooseAddress = ()=>{
     return new Promise((resolve,reject)=>{
         wx.chooseAddress({
@@ -33,3 +35,17 @@ export const chooseAddress = ()=>{
         });   
     })
 }
+
+
+//  执行登录
+export const login = ()=>{
+    return new Promise((resolve,reject)=>{
+        wx.login({
+            timeout:10000,
+            success: (result) => {
+               resolve(result) 
+            }
+        });     
+    })
+}
+

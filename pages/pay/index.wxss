@@ -1,1 +1,119 @@
-/* pages/pay/index.wxss */
+/* pages/cart/index.wxss */
+.address-wrap .address {
+  font-weight: normal;
+  border: 1px solid #ccc;
+  margin-top: 40rpx;
+}
+.address-wrap .address-name {
+  padding: 20rpx 80rpx;
+  border-bottom: 1px solid var(--themeColor);
+}
+.address-wrap .address-name .userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.address-wrap .address-name .userInfo .name {
+  flex: 1;
+}
+.address-wrap .address-name .userInfo .tel {
+  flex: 1;
+  text-align: right;
+}
+.carts-wrap {
+  margin-bottom: 120rpx;
+}
+.carts-wrap .title {
+  border-bottom: 2rpx solid var(--themeColor);
+  line-height: 60rpx;
+  padding-left: 20rpx;
+}
+.carts-wrap .carts-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  padding: 15rpx 15rpx 15rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+.carts-wrap .carts-item .item-img {
+  flex: 1;
+}
+.carts-wrap .carts-item .item-img image {
+  width: 100%;
+}
+.carts-wrap .carts-item .goods-content {
+  flex: 3;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.carts-wrap .carts-item .goods-content .goods-name {
+  font-size: 26rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.carts-wrap .carts-item .goods-content .goods-computed {
+  display: flex;
+}
+.carts-wrap .carts-item .goods-content .goods-computed .price {
+  flex: 1;
+  color: var(--themeColor);
+}
+.carts-wrap .carts-item .goods-content .goods-computed .number {
+  display: flex;
+}
+.carts-wrap .carts-item .goods-content .goods-computed .number .num {
+  line-height: 40rpx;
+  padding: 0 15rpx;
+  color: #666;
+}
+.account-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20rpx;
+  height: 100rpx;
+  background: #fff;
+  box-shadow: 0 0 1px #ccc;
+}
+.account-wrap .total-price {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20rpx;
+}
+.account-wrap .total-price .total {
+  font-size: 30rpx;
+  text-align: right;
+}
+.account-wrap .total-price .total .price {
+  color: var(--themeColor);
+  font-weight: bold;
+}
+.account-wrap .total-price .freight {
+  text-align: right;
+  font-size: 24rpx;
+  color: #666;
+}
+.account-wrap .account {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--themeColor);
+  border-radius: 0;
+  background: var(--themeColor);
+  height: 100%;
+  font-weight: normal;
+  line-height: 60rpx;
+  color: #fff;
+}

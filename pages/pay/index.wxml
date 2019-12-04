@@ -1,2 +1,49 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!--pages/cart/index.wxml-->
+
+<!-- 添加收货地址 -->
+<view class="address-wrap">
+    <button wx:if="{{!address.userName}}" class="address" bindtap="getAddress">+添加收货地址</button>
+    <view class="address-name" wx:else>
+        <view class="userInfo">
+            <view class="name">收货人：{{address.userName}}</view>
+            <view class="tel">{{address.telNumber}}</view>
+        </view>
+        <view class="address-detail">{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+        </view>
+    </view>
+</view>
+
+<!-- 购物车列表项  开始-->
+
+<view class="carts-wrap">
+    <view class="title">购物车</view>
+    <view class="carts-item" wx:for="{{carts}}" wx:key="goods_id">
+
+        <view class="item-img">
+            <image src="{{item.goods_small_logo}}" mode="widthFix" />
+        </view>
+        <view class="goods-content">
+            <view class="goods-name">{{item.goods_name}}</view>
+            <view class="goods-computed">
+                <view class="price">￥{{item.goods_price}}</view>
+                <view class="number">
+                    <view class="num">X{{item.nums}}</view>                 
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 购物车列表项  结束-->
+
+<view class="account-wrap">
+    <view class="total-price">
+        <view class="total">合计:<text class="price">￥{{totalPrice}}</text></view> 
+        <text class="freight" >包含运费</text>
+    </view>
+    
+    <button class="account"  open-type="getUserInfo"  bindgetuserinfo=
+    "getUserInfo">支付({{num}})</button>
+      
+
+</view>

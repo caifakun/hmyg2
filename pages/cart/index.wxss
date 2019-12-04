@@ -21,6 +21,9 @@
   flex: 1;
   text-align: right;
 }
+.carts-wrap {
+  margin-bottom: 100rpx;
+}
 .carts-wrap .title {
   border-bottom: 2rpx solid var(--themeColor);
   line-height: 60rpx;

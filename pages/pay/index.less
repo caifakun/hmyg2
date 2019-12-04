@@ -30,7 +30,7 @@
 
 // 购物车列表项
 .carts-wrap {
-  margin-bottom: 100rpx;
+  margin-bottom: 120rpx;
     .title {
       border-bottom: 2rpx solid var(--themeColor);
       line-height: 60rpx;
@@ -42,19 +42,14 @@
       justify-content: center;
       align-items: center;
       height: 200rpx; 
-      padding: 15rpx;
+      padding: 15rpx 15rpx 15rpx 30rpx;
       border-bottom: 1px solid #ccc;
-      checkbox-group{
-        margin-right: 20rpx;
-      }
       
       .item-img {
         flex: 1;
-        
-        // overflow: hidden;
+
         image {
           width: 100%;
-          // height: 100%;
         }
       }
   
@@ -64,8 +59,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .goods-name {
-          
+        .goods-name {         
           font-size: 26rpx;
           color: #666;
           display: -webkit-box;
@@ -85,27 +79,12 @@
   
           .number {
             display: flex;
-            
-            .reduce {
-              width: 40rpx;
-              height:40rpx;
-              border: 1rpx solid #ccc;
-              line-height: 30rpx;
-              text-align: center;
-            }
-  
             .num {
               line-height: 40rpx;
               padding: 0 15rpx;
+              color: #666
             }
-  
-            .add {
-              width: 40rpx;
-              height:40rpx;
-              border: 1rpx solid #ccc;
-              line-height: 30rpx;
-              text-align: center;
-            }
+
           }
         }
       }
@@ -122,15 +101,13 @@
   justify-content: center;
   align-items: center;
   padding-left:  20rpx;
-  height: 80rpx;
+  height: 100rpx;
   background: #fff;
   box-shadow: 0 0 1px #ccc;
   
-  checkbox-group{
-    flex: 2;
-  }
+  
   .total-price{
-    flex: 2;
+    flex: 3;
     display: flex;
     flex-direction: column;
     padding-right: 20rpx;
@@ -151,12 +128,14 @@
     }
   }
   .account{
-    flex: 1.5;
+    flex: 1;
     text-align: center;
     border: 1px solid var(--themeColor);
+    border-radius: 0;
     background: var(--themeColor);
     height: 100%;
-    line-height: 80rpx;
+    font-weight: normal;
+    line-height: 60rpx;
     color: #fff;
     
   }
