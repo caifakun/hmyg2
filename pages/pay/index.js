@@ -20,7 +20,7 @@
  
  import regeneratorRuntime from '../../lib/runtime/runtime';
 
- import { getSetting,openSetting,chooseAddress,login } from '../../utils/wxAsync';
+ import { getSetting,openSetting,chooseAddress,login,requestPayment } from '../../utils/wxAsync';
  import request from '../../utils/request'
 Page({
 
@@ -110,18 +110,36 @@ Page({
   // 发送请求创建订单
   const order_number = (await request({url:'my/orders/create',method:'post',data:createOrder,header:{Authorization:token}})).data.message.order_number
  
+  // 获取到订单编号后，发送请求进行获取支付参数
+  const pay = (await request({url:'my/orders/req_unifiedorder',method:'post',data:{order_number},header:{Authorization:token}})).data.message.pay
 
-      
+  const res = await requestPayment(pay);
 
-      
-  
+  // 查看 支付状态
+  const state = await request({url:'my/orders/chkOrder',method:'post',data:{order_number},header:{Authorization:token}});
+  console.log(state);
 
-  
-  
-  
-    // wx.navigateTo({
-    //   url: '/pages/pay/index',
-    // });
+  // 如果支付成功了
+    // 1 把缓存中的已经支付了的商品 删除掉 
+    // 2 弹出窗口 提示用户 支付成功
+    // 3 跳转到 订单页面即可
 
+    let carts = wx.getStorageSync('carts');
+    // 把没选中的商品过滤留下来
+    carts = carts.filter(v=>!v.isChecked);
+    // 重新存回本地
+    wx.setStorageSync('carts', carts);
+    // 提示用户支付成功
+    wx.showToast({
+      title: '支付成功',
+      icon: 'success',
+      mask: true,
+      success(result){
+        // 跳转到订单查询页面
+        wx.navigateTo({
+          url: '/pages/order/index',
+        });
+      }
+    });
   }
 })

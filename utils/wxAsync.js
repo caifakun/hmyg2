@@ -49,3 +49,15 @@ export const login = ()=>{
     })
 }
 
+// 进行微信支付
+
+export const requestPayment = (pay)=>{
+    return new Promise((resolve,reject)=>{
+        wx.requestPayment({
+            ...pay,
+            success: (result) => {
+                resolve(result);
+            },
+        });     
+    })
+}
